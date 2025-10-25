@@ -9,8 +9,8 @@ export class TwilioController {
 
   @Post('voice')
   async receiveCall(@Body() body: any, @Res() res: Response) {
-    const from = body.From; // Caller number (E.164 format, e.g. +1978...)
-    const to = body.To;     // Aapka Twilio number
+    const from = body.From;
+    const to = body.To;
 
     await this.calls.logIncoming({
       sid: body.CallSid,
@@ -46,7 +46,6 @@ export class TwilioController {
 
   @Post('dial-complete')
   async dialComplete(@Body() body: any, @Res() res: Response) {
-    // Twilio sends DialCallStatus, DialCallDuration
     const sid = body.CallSid;
     const status = body.DialCallStatus || 'completed';
     const duration = Number(body.DialCallDuration || 0);

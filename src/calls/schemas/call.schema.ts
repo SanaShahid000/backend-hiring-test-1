@@ -6,7 +6,7 @@ export type CallDocument = HydratedDocument<Call>;
 @Schema({ timestamps: true })
 export class Call {
   @Prop({ index: true })
-  sid: string; // Twilio CallSid
+  sid: string;
 
   @Prop()
   from: string;
@@ -15,19 +15,19 @@ export class Call {
   to: string;
 
   @Prop({ default: 'initiated' })
-  status: string; // initiated | in-progress | completed | voicemail | failed
+  status: string;
 
   @Prop()
-  duration: number; // seconds
+  duration: number;
 
   @Prop()
-  digitsSelected: string; // '1' or '2'
+  digitsSelected: string;
 
   @Prop()
-  direction: string; // inbound/outbound
+  direction: string;
 
   @Prop()
-  voicemailUrl: string; // Recording URL
+  voicemailUrl: string;
 
   @Prop()
   recordingSid: string;
